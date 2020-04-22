@@ -1,3 +1,7 @@
 import {combineReducers} from 'redux';
+import country from './country';
 
-export default combineReducers ({});
+
+export default combineReducers ({
+    country
+});

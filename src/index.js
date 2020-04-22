@@ -11,13 +11,13 @@ import CreateStore from './store';
 const store = CreateStore();
 
 ReactDOM.render(
-  <React.StrictMode>
+
     <Provider store={store}>
       <App>
         <Country />
       </App>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+
   document.getElementById('root')
 );
 

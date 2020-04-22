@@ -1,4 +1,7 @@
-
+import {
+    FETCH_COUNTRY_REQUESTED,
+    FETCH_COUNTRY_SUCCEEDED
+}from '../actions/country'
 
 const initialState = {
     countries: [],
@@ -18,6 +21,10 @@ const initialState = {
 
 export default (state = initialState, action) =>{
     switch(action.type){
+        case FETCH_COUNTRY_REQUESTED:
+            return{...state, countries:[]};
+        case FETCH_COUNTRY_SUCCEEDED:
+            return{...state, countries: action.countries};
         default:
             return {...state};
     }

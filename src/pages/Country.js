@@ -1,46 +1,19 @@
 import React, {Component} from 'react';
-import Axios from 'axios';
+import {connect}from 'react-redux'
 
 import Title from '../components/Title';
 import Table from '../components/Table';
 
-
-const fetchCountry = async () => {
-  const {data, status} = await Axios.get('http://localhost:3001/api/country');
-  console.log(data);
-  if (status !== 200){
-    return[];
-  }
-  return data;
-}
+import {fetchCountryRequested} from '../actions/country';
 
 class Country extends Component { 
-  constructor(props) {
-    super(props);
-    this.state = {
-        documents: [],
-        headers: [
-          {
-           label: 'Nombre',
-           key: 'name'
-          },{
-            label: 'Codigo',
-            key: 'code'
-          },{
-            label: 'Id',
-            key: 'id'
-          }
-        ]
-      }
-   }
   async componentDidMount(){
-    const documents = await fetchCountry();
-    this.setState({documents})
+    this.props.requestCountry();
   }
-  render() {
-    const {documents, headers} = this.state;
-    return (
 
+  render() {
+    const {headers, documents} = this.props;
+    return (
       <div className="App">
         <header className="App-header">
           
@@ -55,4 +28,20 @@ class Country extends Component {
   }
 }
 
-export default Country;
+
+
+//mapStateToProps <<<<  todo el state del store esta aca, tomamos el store >>> Component como Props
+//mapDdispatchToProps <<< todas las acciones que vamos a ejecutar o llamar >>> Component como Props
+//mergeProps <<< funciona accion y propiedades onChange
+
+
+const mapStateToProps = state => ({
+    headers: state.country.headers,
+    documents: state.country.countries 
+});
+
+const mapDispatchToProps = dispatch => ({
+  requestCountry: () => dispatch(fetchCountryRequested())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Country);
