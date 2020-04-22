@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 
-import './App.css';
-
-import Table from '../components/Table';
 import Title from '../components/Title';
-import ChildComponent from '../components/ChildComponent';
+import Table from '../components/Table';
 
 
 const fetchCountry = async () => {
@@ -17,7 +14,7 @@ const fetchCountry = async () => {
   return data;
 }
 
-class App extends Component { 
+class Country extends Component { 
   constructor(props) {
     super(props);
     this.state = {
@@ -58,4 +55,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Country;
