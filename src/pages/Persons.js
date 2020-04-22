@@ -4,20 +4,20 @@ import {connect}from 'react-redux'
 import Title from '../components/Title';
 import Table from '../components/Table';
 
-import {fetchCountryRequested} from '../actions/country';
+import {fetchPersonsRequested} from '../actions/persons';
 
-class Country extends Component { 
+class Persons extends Component { 
   async componentDidMount(){
-    this.props.requestCountry();
+    this.props.requestPersons();
   }
 
   render() {
     const {headers, documents} = this.props;
     return (
-      <div className="Country">
-        <header className="Country-header">
+      <div className="Persons">
+        <header className="persons-header">
           
-            <Title title="Hello Country" />
+            <Title title="Hello Persons" />
          
           <div>
             <Table {...{documents, headers}}/>
@@ -36,12 +36,12 @@ class Country extends Component {
 
 
 const mapStateToProps = state => ({
-    headers: state.country.headers,
-    documents: state.country.countries 
+    headers: state.persons.headers,
+    documents: state.persons.persons 
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestCountry: () => dispatch(fetchCountryRequested())
+  requestPersons: () => dispatch(fetchPersonsRequested())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Country);
+export default connect(mapStateToProps, mapDispatchToProps)(Persons);
