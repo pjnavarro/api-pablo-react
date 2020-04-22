@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const Header = () => (
     <header>
         <nav>
-              <ul>
+              <ul style={{listStyle: 'none', display: 'inline-block'}}>
                 <li>
                   <Link to="/">Home</Link>
                 </li>

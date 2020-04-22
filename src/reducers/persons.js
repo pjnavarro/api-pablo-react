@@ -14,7 +14,7 @@ const initialState = {
           key: 'surname'
         },{
           label: 'E-mail',
-          key: 'imail'
+          key: 'email'
         },{
             label:'Genero',
             key: 'gender'
