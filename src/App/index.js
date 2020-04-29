@@ -1,18 +1,18 @@
 import React, {Fragment} from 'react';
 import{
-    BrowserRouter as Router,
-    Switch,
-    Route
-} from "react-router-dom";
+          BrowserRouter as Router,
+          Switch,
+          Route
+      } from "react-router-dom";
 
 import Header from './Header';
 import Footer from './Footer';
 
 import Home from './home';
-import Country from '../pages/Country';
+import Countries from '../pages/Countries';
 import Persons from '../pages/Persons';
 import Cars from '../pages/Cars';
-import Clubes from '../pages/Clubes';
+import Clubs from '../pages/Clubs';
 import Provinces from '../pages/Provinces';
 
 const Index = () => (
@@ -22,8 +22,8 @@ const Index = () => (
           <main>
             <Switch>
               <Route path="/persons" component ={Persons}/>
-              <Route path="/country" component ={Country}/>
-              <Route path="/clubes" component ={Clubes}/>
+              <Route path="/countries" component ={Countries}/>
+              <Route path="/clubs" component ={Clubs}/>
               <Route path="/cars" component ={Cars}/>
               <Route path="/provinces" component ={Provinces}/>
               <Route path="/" component ={Home}/>

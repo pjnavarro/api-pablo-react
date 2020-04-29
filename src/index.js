@@ -5,8 +5,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 
-import Country from './pages/Country';
-
 import CreateStore from './store';
 const store = CreateStore();
 

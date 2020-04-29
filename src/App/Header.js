@@ -9,7 +9,7 @@ const Header = () => (
                   <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <Link to="/country">Paises</Link>
+                  <Link to="/countries">Paises</Link>
                 </li>
                 <li>
                   <Link to="/persons">Personas</Link>
@@ -18,7 +18,7 @@ const Header = () => (
                   <Link to="/cars">Autos</Link>
                 </li>
                 <li>
-                  <Link to="/clubes">Clubes</Link>
+                  <Link to="/clubs">Clubes</Link>
                 </li>
                 <li>
                   <Link to="/provinces">Provincias</Link>

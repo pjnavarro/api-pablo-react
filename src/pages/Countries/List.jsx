@@ -1,24 +1,24 @@
 import React, {Component} from 'react';
 import {connect}from 'react-redux'
 
-import Title from '../components/Title';
-import Table from '../components/Table';
+import Title from '../../components/Title';
+import Table from '../../components/Table';
+import {Link} from 'react-router-dom'
+import {fetchCountriesRequested} from '../../actions/countries';
 
-import {fetchCountryRequested} from '../actions/country';
-
-class Country extends Component { 
+class Countries extends Component { 
   async componentDidMount(){
-    this.props.requestCountry();
+    this.props.requestCountries();
   }
 
   render() {
     const {headers, documents} = this.props;
     return (
-      <div className="Country">
-        <header className="Country-header">
+      <div className="countries">
+        <header className="countries-header">
           
-            <Title title="Hello Country" />
-         
+            <Title title="Paises" />
+            <Link to= '/countries/new'> Nueva pais </Link>
           <div>
             <Table {...{documents, headers}}/>
           </div>
@@ -36,12 +36,12 @@ class Country extends Component {
 
 
 const mapStateToProps = state => ({
-    headers: state.country.headers,
-    documents: state.country.countries 
+  headers: state.countries.headers,
+  documents: state.countries.countries
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestCountry: () => dispatch(fetchCountryRequested())
+requestCountries: () => dispatch(fetchCountriesRequested())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Country);
+export default connect(mapStateToProps, mapDispatchToProps)(Countries);

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect}from 'react-redux'
+import {Link} from 'react-router-dom';
 
-import Title from '../components/Title';
-import Table from '../components/Table';
+import Title from '../../components/Title';
+import Table from '../../components/Table';
 
-import {fetchPersonsRequested} from '../actions/persons';
+import {fetchPersonsRequested} from '../../actions/persons';
 
 class Persons extends Component { 
   async componentDidMount(){
@@ -17,10 +18,10 @@ class Persons extends Component {
       <div className="Persons">
         <header className="persons-header">
           
-            <Title title="Hello Persons" />
-         
+            <Title title="Personas"/>
+            <Link to= '/persons/new'> Nueva persona </Link>
           <div>
-            <Table {...{documents, headers}}/>
+            <Table {...{documents, headers, linkTo: '/persons'}}/>
           </div>
         </header>
       </div>
